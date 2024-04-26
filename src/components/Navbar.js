@@ -7,7 +7,6 @@ import { HiOutlineUser } from "react-icons/hi2";
 import { CiLogin } from "react-icons/ci";
 import { CiLogout } from "react-icons/ci";
 const Navbar = () => {
-  let isUserAdmin = true;
   return (
     <>
       <div className="navbar bg-base-100">
@@ -29,20 +28,17 @@ const Navbar = () => {
                 <a href="/">Home</a>
               </li>
               <li>
-                <a href="/Products">Products</a>
+                <a href="/Workouts">Workouts</a>
               </li>
-              {isUserAdmin && (
-                <li>
-                  <a href="/dashboard">Dashboard</a>
-                </li>
-              )}
-              {isUserAdmin && (
-                <li>
-                  <a href="/addproduct">Add Products</a>
-                </li>
-              )}
+
               <li>
-                <a href="/Contact">Contact Us</a>
+                <a href="/My-Progress">My Progress</a>
+              </li>
+              <li>
+                <a href="/Login">Login</a>
+              </li>
+              <li>
+                <a href="/Signup">Signup</a>
               </li>
             </ul>
           </div>
