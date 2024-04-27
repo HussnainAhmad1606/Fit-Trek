@@ -36,7 +36,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-10 h-auto ">
+      <div className="mt-10 h-auto  w-full flex justify-center">
         <div className="hero-content ">
           <div className="w-full">
             <h1 className="text-3xl lg:text-5xl text-center font-medium ">
