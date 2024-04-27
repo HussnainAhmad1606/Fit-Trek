@@ -1,5 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SiSimpleanalytics } from "react-icons/si";
+import { BsClipboard2Data } from "react-icons/bs";
+import { CgGym } from "react-icons/cg";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -18,14 +22,12 @@ export default function Home() {
               Welcome to Fit Trek{" "}
             </h1>
             <p className="mb-5">
-              Welcome to Fit Trek, your go-to hub for all things fitness!
-              Explore a world of workout possibilities, from tailored routines
-              to the latest gym trends. With our comprehensive platform, you can
-              track your progress, discover new exercises, and connect with a
-              supportive community of fellow fitness enthusiasts. Whether you're
-              a beginner or a seasoned pro, Fit Trek is here to empower you on
-              your journey to a healthier, happier you. Start exploring now and
-              unlock your full potential with Fit Trek!
+              Fit Trek is a comprehensive fitness hub where you can explore
+              various workout possibilities, from personalized routines to the
+              latest gym trends. It offers tools to track your progress,
+              discover new exercises, and connect with a supportive community.
+              Whether you're a beginner or an experienced fitness enthusiast,
+              Fit Trek is here to help you reach your health and wellness goals.
             </p>
             <Link href={"/Workouts"}>
               <button className="btn btn-primary">Explore Workouts</button>
@@ -34,16 +36,38 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-10 min-h-screen ">
+      <div className="mt-10 h-auto ">
         <div className="hero-content ">
           <div className="w-full">
-            <h1 className="text-3xl lg:text-5xl text-center font-medium ">What can the GymTrack World app help you with?</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-            <button className="btn btn-primary">Get Started</button>
+            <h1 className="text-3xl lg:text-5xl text-center font-medium ">
+              What can the GymTrack World app help you with?
+            </h1>
+            <div className="grid grid-flow-row place-content-center lg:flex lg:mt-10 lg:justify-center gap-10 items-center text-centr">
+              <div className="w-40">
+                <p className="py-6  text-center  items-center flex justify-center text-8xl">
+                  <SiSimpleanalytics />
+                </p>
+                <p className=" text-center">Training analytics</p>
+              </div>
+              <div className="w-40">
+                <p className="py-6  text-center  items-center flex justify-center text-8xl">
+                  <FaRegCalendarAlt />
+                </p>
+                <p className=" text-center">Easy and fast time management</p>
+              </div>
+              <div className="w-40">
+                <p className="py-6  text-center  items-center flex justify-center text-8xl">
+                  <BsClipboard2Data />
+                </p>
+                <p className=" text-center">Digital administration</p>
+              </div>
+              <div className="w-40">
+                <p className="py-6  text-center  items-center flex justify-center text-8xl">
+                  <CgGym />
+                </p>
+                <p className=" text-center">WorkOuts</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
