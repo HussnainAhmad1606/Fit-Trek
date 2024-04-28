@@ -6,6 +6,7 @@ import { CiHeart } from "react-icons/ci";
 import { HiOutlineUser } from "react-icons/hi2";
 import { CiLogin } from "react-icons/ci";
 import { CiLogout } from "react-icons/ci";
+import Link from "next/link";
 const Navbar = () => {
   return (
     <>
@@ -81,10 +82,10 @@ const Navbar = () => {
               className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="justify-between">
-                  Profile
+                <Link href={"/dashboard"} className="justify-between">
+                  Dashboard
                   <span className="badge">New</span>
-                </a>
+                </Link>
               </li>
               <li>
                 <a>Settings</a>

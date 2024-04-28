@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Card = (params) => {
@@ -12,7 +13,7 @@ const Card = (params) => {
         <div className="card-body">
           <h2 className="card-title">{params.title}</h2>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Start Workout</button>
+            <Link href={`/Workouts/${params.title}`} className="btn btn-primary">Start Workout</Link>
           </div>
         </div>
       </div>

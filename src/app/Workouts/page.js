@@ -26,13 +26,13 @@ const Worksout = () => {
         <h1 className="text-center my-5 text-5xl font-bold">Workouts</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-content-center gap-10 mx-auto justify-center  mt-10">
-          <Card title="Chest Exercises" pic="chest.jpg"/>
-          <Card title="Leg Exercises" pic="LEG-WORKOUTS.webp"/>
-          <Card title="Biceps Exercises " pic="bicep.webp"/>
-          <Card title="Triceps Exercises" pic="tricep.jfif"/>
-          <Card title="Back Exercises" pic="back.jpg"/>
-          <Card title="Arm Exercises" pic="arm.png"/>
-          <Card title="Shoulder Exercises" pic="shoulderr.jpg"/>
+          <Card title="Chest" pic="chest.jpg"/>
+          <Card title="Leg" pic="LEG-WORKOUTS.webp"/>
+          <Card title="Biceps " pic="bicep.webp"/>
+          <Card title="Triceps" pic="tricep.jfif"/>
+          <Card title="Back" pic="back.jpg"/>
+          <Card title="Arm" pic="arm.png"/>
+          <Card title="Shoulder" pic="shoulderr.jpg"/>
         </div>
       </div>
     </>
