@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar"
+import Navbar from "./components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,10 +16,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light">
       <body className={inter.className}>
         <Navbar/>
+        
+        <Navbar />
+
         {children}
+
+        <footer className="footer footer-center p-4 bg-base-300 text-base-content">
+          <aside>
+            <p>Copyright © 2024 - All right reserved by Fit Trek</p>
+          </aside>
+        </footer>
+      
         </body>
     </html>
   );
