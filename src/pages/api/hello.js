@@ -4,7 +4,7 @@ const  handler = async(req, res) => {
 
 try {
 
-const response = await runQuery("SELECT * FROM test", []);
+const response = await runQuery("SELECT * FROM user", []);
 
 const data = JSON.stringify(response);
 

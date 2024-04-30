@@ -1,6 +1,6 @@
 import React from "react";
-import Card from '../../components/card'
-import WorkoutList from '../../components/WorkoutList'
+import Card from '@/components/card'
+import WorkoutList from '@/components/WorkoutList'
 const Worksout = ({params}) => {
 
     const {workoutType} = params;

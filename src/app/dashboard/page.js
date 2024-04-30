@@ -1,5 +1,5 @@
 import React from "react";
-import DashboardCard from "../components/DashboardCard"
+import DashboardCard from "@/components/DashboardCard"
 const MyProgress = () => {
   return <div>
     <h1 className="my-10 text-3xl font-bold text-center">Dashboard</h1>
