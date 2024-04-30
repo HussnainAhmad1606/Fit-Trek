@@ -15,7 +15,7 @@ const Worksout = ({params}) => {
           <WorkoutList title={"Workout 1"} time={"5 Min"} kcal={300}/>
           <WorkoutList title={"Workout 2"} time={"15 Min"} kcal={70}/>
           <WorkoutList title={"Workout 3"} time={"25 Min"} kcal={500}/>
-          <WorkoutList title={"Workout 4"} time={"225 Min"} kcal={1000}/>
+          <WorkoutList title={"Workout 4"} time={"45 Min"} kcal={1000}/>
         
         </div>
       </div>
