@@ -134,8 +134,10 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="bg-base-200">
 
-      <div className="carousel carousel-end lg:gap-10 rounded-box w-96 lg:w-auto">
+        <h1 className="font-bold  text-5xl  text-center">Gallery</h1>
+      <div className="carousel carousel-end mt-10 lg:gap-10 rounded-box w-96 lg:w-auto">
         <div className="carousel-item h-96 w-96">
           <img src="/1.jpeg" alt="Drink" />
         </div>
@@ -148,7 +150,7 @@ export default function Home() {
         <div className="carousel-item h-96 w-96">
           <img src="4.jpeg" alt="Drink" />
         </div>
-       
+      </div>
       </div>
     </>
   );

@@ -1,11 +1,11 @@
 import React from "react";
-import Trr from "../components/Trr";
+import Trr from "../../components/Trr";
 const MyProgress = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content text-center">
         <div className="w-auto">
-          <h1 className="text-5xl font-bold">My Progress</h1>
+          <h1 className="text-5xl font-bold mb-11">My Progress</h1>
           <div className="overflow-x-auto">
             <table className="table">
               {/* head */}
@@ -18,25 +18,10 @@ const MyProgress = () => {
                   <th>Advance</th>
                 </tr>
               </thead>
-              <tbody>
-                {/* row 1 */}
-                <tr>
-                  <th>1</th>
-                  <td>Cy Ganderton</td>
-                  <td>Quality Control Specialist</td>
-                  <td>Blue</td>
-                </tr>
-                {/* row 2 */}
-                <Trr />
-                <Trr />
-                <Trr />
-                {/* row 3 */}
-                <tr>
-                  <th>3</th>
-                  <td>Brice Swyre</td>
-                  <td>Tax Accountant</td>
-                  <td>Red</td>
-                </tr>
+              <tbody  >
+                <Trr name="Chest" time="10 mins" cal="100"/>
+                <Trr name="Legs" time="20 mins" cal="300"/>
+                <Trr name="Back" time="15 mins" cal="200"/>
               </tbody>
             </table>
           </div>
