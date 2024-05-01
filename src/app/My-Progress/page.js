@@ -6,7 +6,7 @@ const MyProgress = () => {
       <div className="hero-content text-center">
         <div className="w-auto">
           <h1 className="text-5xl font-bold mb-11">My Progress</h1>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto w-80 lg:w-full">
             <table className="table">
               {/* head */}
               <thead>
@@ -18,7 +18,7 @@ const MyProgress = () => {
                   <th>Advance</th>
                 </tr>
               </thead>
-              <tbody  >
+              <tbody>
                 <Trr name="Chest" time="10 mins" cal="100"/>
                 <Trr name="Legs" time="20 mins" cal="300"/>
                 <Trr name="Back" time="15 mins" cal="200"/>
