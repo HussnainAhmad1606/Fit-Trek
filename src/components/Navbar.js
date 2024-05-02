@@ -46,7 +46,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">Fit Trek</a>
+          <a className="btn btn-ghost text-xl" href="/">Fit Trek</a>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1 hidden lg:flex md:flex">

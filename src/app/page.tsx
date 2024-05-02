@@ -71,6 +71,87 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <div className="hero h-screen  bg-base-200">
+        <div className="hero-content  text-center">
+          <div className="w-80 lg:w-auto">
+            <h1 className="text-1xl lg:text-3xl mb-10">
+              Get Most Competitive Luxury Hotel Gym Membership Right Now to Save
+              Big Bucks!
+            </h1>
+            <h1 className="font-bold text-3xl lg:text-5xl mb-10">
+              Hotel Gym Membership Plan
+            </h1>
+            <div className="overflow-x-auto">
+              <table className="table">
+                {/* head */}
+                <thead>
+                  <tr>
+                    <th>Memberhip</th>
+                    <th>1 Month</th>
+                    <th>3 Month</th>
+                    <th>6 Month</th>
+                    <th>1 Year</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* row 1 */}
+                  <tr>
+                    <td className="font-bold">Single</td>
+                    <td>Rs. 2000</td>
+                    <td>Rs. 5000</td>
+                    <td>Rs. 9000</td>
+                    <td>Rs. 17000</td>
+                  </tr>
+                  {/* row 2 */}
+                  <tr>
+                    <td className="font-bold">Couple</td>
+                    <td>Rs. 3500</td>
+                    <td>Rs. 10000</td>
+                    <td>Rs. 18000</td>
+                    <td>Rs. 30000</td>
+                  </tr>
+                  {/* row 3 */}
+                  <tr>
+                    <td>
+                      <span className="font-bold">Family</span>
+                      <br></br>2 Adults and 2 Kids under 12
+                    </td>
+                    <td>Rs. 5000</td>
+                    <td>Rs. 12000</td>
+                    <td>Rs. 25000</td>
+                    <td>Rs. 4000</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p className=" mt-10">
+                <span className=" font-bold">Gym Timings:</span>
+                7:00 am to 10:00 pm Winter and 6:30 am to 11:00 pm Summer
+                <br></br> All above rates are inclusive of taxes
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-base-200">
+
+        <h1 className="font-bold  text-5xl  text-center">Gallery</h1>
+      <div className="carousel carousel-end mt-10 lg:gap-10 rounded-box w-96 lg:w-auto">
+        <div className="carousel-item h-96 w-96">
+          <img src="/1.jpeg" alt="Drink" />
+        </div>
+        <div className="carousel-item h-96 w-96">
+          <img src="2.jpeg" alt="Drink" />
+        </div>
+        <div className="carousel-item h-96 w-96">
+          <img src="3.jpeg" alt="Drink" />
+        </div>
+        <div className="carousel-item h-96 w-96">
+          <img src="4.jpeg" alt="Drink" />
+        </div>
+      </div>
+      </div>
     </>
   );
 }
