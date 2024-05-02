@@ -1,6 +1,5 @@
 import React from "react";
 import Trr from "@/components/Trr";
-import Trr from "../../components/Trr";
 const MyProgress = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
