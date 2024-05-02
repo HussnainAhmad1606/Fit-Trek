@@ -1,15 +1,38 @@
 "use client";
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async(event) => {
+    console.log("Submitting")
+    const data = {
+      username: username,
+      email: email,
+      password: password,
+      avatar: ""
+    }
+   
+    const req = await fetch("/api/auth/signup",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
 
-    console.log("Form submitted with values:", { email, username, password });
+    const result = await req.json();
+    const res = JSON.parse(result.data)
+    console.log(result, res)
+    if (res.message){
+      toast.error(res.message)
+    }
+    else {
+      toast.success("account creation Success")
+    }
   };
 
   return (
@@ -29,7 +52,7 @@ const Signup = () => {
             </div>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body" onSubmit={handleSubmit}>
+            <div className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -83,11 +106,11 @@ const Signup = () => {
                 </p>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary" onSubmit={handleSubmit}>
+                <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
                   Sign up
                 </button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>

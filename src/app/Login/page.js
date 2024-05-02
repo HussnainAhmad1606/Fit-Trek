@@ -1,13 +1,34 @@
 "use client";
 import React, { useState } from "react";
-
+import { toast } from "react-hot-toast";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
+    const data = {
+      username: email,
+      password: password
+    }
     event.preventDefault();
     console.log("Form submitted with values:", { email, password });
+   
+    const req = await fetch("http://localhost:3000/api/auth/login",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+
+    const result = await req.json();
+
+    if (result.data == "[]"){
+      toast.error("Wrong credentials")
+    }
+    else {
+      toast.success("Logged In Success")
+    }
   };
 
   return (
@@ -34,11 +55,11 @@ const Login = () => {
             <form className="card-body" onSubmit={handleSubmit}>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text">Username</span>
                 </label>
                 <input
-                  type="email"
-                  placeholder="email"
+                  type="text"
+                  placeholder="Username"
                   className="input input-bordered"
                   required
                   value={email}
