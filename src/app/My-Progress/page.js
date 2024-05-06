@@ -5,8 +5,12 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { useUserStore } from "@/store/store";
+import Graph from "../../components/Graph";
+import Link from "next/link";
 const MyProgress = () => {
   const {UserId} = useUserStore();
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -52,17 +56,45 @@ const MyProgress = () => {
     }
 
   }
+  const getGraphData = async() =>{
+    const year = new Date().getFullYear();
+    const month = new Date().getMonth();
+    const data = {
+      year: year,
+      month: month+1
+    }
+    const req = await fetch("http://localhost:3000/api/workouts/get-monthly-workouts",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+
+    const result = await req.json();
+    console.log(result);
+    if (result.type == "success"){
+      setData(result.response)
+    }
+    setIsLoading(false)
+
+  }
 
 
   useEffect(() => {
     getExercises();
+    getGraphData();
   }, [])
   
   return (
+    <>
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content text-center">
-        <div className="w-auto">
-          <h1 className="text-5xl font-bold mb-11">My Progress</h1>
+        <div className="">
+          <div className="my-5 flex justify-center items-center flex-row">
+          <h1 className="text-5xl font-bold">My Progress</h1>
+          <Link href={"/"} className="btn btn-sm btn-primary mx-5">Analytics</Link>
+          </div>
           <div className="flex justify-center items-center">
           <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
           <p className="text-4xl mx-5">-</p>
@@ -97,6 +129,20 @@ const MyProgress = () => {
         </div>
       </div>
     </div>
+
+
+<div>
+
+  <h1 className="text-center font-bold text-4xl my-10">Monthly Data</h1>
+{
+  isLoading==false?(
+    <Graph data={data}/>
+    ):null
+}
+
+    </div>
+    
+    </>
   );
 };
 
