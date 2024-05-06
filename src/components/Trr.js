@@ -7,6 +7,7 @@ const Trr = (params) => {
       <td>{params.name}</td>
       <td>{params.time}</td>
       <td>{params.cal}</td>
+      <td>{new Date(params.date).toLocaleString()}</td>
       <td>
         <button className=" btn btn-sm btn-primary">Advance</button>
       </td>

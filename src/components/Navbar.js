@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { FaBars } from "react-icons/fa";
 import { CiSettings } from "react-icons/ci";
@@ -7,7 +8,19 @@ import { HiOutlineUser } from "react-icons/hi2";
 import { CiLogin } from "react-icons/ci";
 import { CiLogout } from "react-icons/ci";
 import Link from "next/link";
+import {useUserStore} from "@/store/store";
 const Navbar = () => {
+
+  const {isLogin, Username, setIsLogin} = useUserStore();
+
+  
+
+  const logout = () => {
+    setIsLogin(false);
+    localStorage.removeItem("lms-token");
+    toast.success("Log Out Success");
+
+  }
   return (
     <>
       <div className="navbar bg-base-100">
@@ -26,21 +39,16 @@ const Navbar = () => {
             ></label>
             <ul className="menu p-4 w-1/2 min-h-full bg-base-200 text-base-content">
               <li>
-                <a href="/">Home</a>
+                <Link href="/">Home</Link>
               </li>
               <li>
-                <a href="/Workouts">Workouts</a>
+                <Link href="/Workouts">Workouts</Link>
               </li>
 
               <li>
-                <a href="/My-Progress">My Progress</a>
+                <Link href="/My-Progress">My Progress</Link>
               </li>
-              <li>
-                <a href="/Login">Login</a>
-              </li>
-              <li>
-                <a href="/Signup">Signup</a>
-              </li>
+             
             </ul>
           </div>
         </div>
@@ -50,21 +58,28 @@ const Navbar = () => {
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1 hidden lg:flex md:flex">
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/Workouts">Workouts</a>
-            </li>
-            <li>
-              <a href="/My-Progress">My Progress</a>
-            </li>
-            <li>
-              <a href="/Signup">Signup</a>
-            </li>
+          <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/Workouts">Workouts</Link>
+              </li>
+
+              <li>
+                <Link href="/My-Progress">My Progress</Link>
+              </li>
+              
           </ul>
 
-          <div className="dropdown dropdown-end ">
+          {
+            isLogin==false?(
+              <>
+              <Link className="btn btn-primary mx-2" href="/Login">Login</Link>
+              <Link className="btn btn-primary" href="/Signup">Signup</Link>
+              </>
+
+            ):(
+              <div className="dropdown dropdown-end ">
             <div
               tabIndex={0}
               role="button"
@@ -73,7 +88,7 @@ const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  src={`https://ui-avatars.com/api/?name=${Username}&background=random`} 
                 />
               </div>
             </div>
@@ -83,18 +98,20 @@ const Navbar = () => {
             >
               <li>
                 <Link href={"/dashboard"} className="justify-between">
-                  Dashboard
-                  <span className="badge">New</span>
+                  Welcome, {Username}
                 </Link>
               </li>
               <li>
-                <a>Settings</a>
+                <Link href={"/dashboard"}>Dashboard</Link>
               </li>
               <li>
-                <a>Logout</a>
+              <Link href={"/dashboard"}>Logout</Link>
               </li>
+
             </ul>
           </div>
+            )
+          }
         </div>
       </div>
     </>

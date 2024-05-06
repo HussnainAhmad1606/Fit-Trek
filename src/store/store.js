@@ -10,6 +10,7 @@ export const useUserStore = create((set) => ({
   lastName: "",
   theme: "light",
   isAlert: false,
+  isExplosion: true,
   alertMsg: "",
   alertType: "",
   attachments: [],
@@ -18,6 +19,7 @@ export const useUserStore = create((set) => ({
 
 
   setFirstName: (newState) => set({ firstName:newState}),
+  setIsExplosion: (newState) => set({ isExplosion:newState}),
   setLastName: (newState) => set({ lastName:newState}),
   setIsLogin: (newState) => set({ isLogin:newState}),
   setUsername: (newState) => set({ Username:newState}),

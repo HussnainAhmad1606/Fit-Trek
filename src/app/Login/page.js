@@ -1,16 +1,16 @@
 "use client";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
+import { useUserStore } from "@/store/store";
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [email, SetEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const {setIsLogin, setUserId, setEmail, setUsername} = useUserStore();
   const handleSubmit = async(event) => {
     const data = {
       username: email,
       password: password
     }
-    event.preventDefault();
     console.log("Form submitted with values:", { email, password });
    
     const req = await fetch("http://localhost:3000/api/auth/login",{
@@ -22,12 +22,18 @@ const Login = () => {
     })
 
     const result = await req.json();
+    console.log(result);
 
-    if (result.data == "[]"){
-      toast.error("Wrong credentials")
+    if (result.type == "success"){
+      setIsLogin(true);
+      setUsername(result.response[0].username)
+      setEmail(result.response[0].email)
+      setUserId(result.response[0].id)
+      toast.success("Logged In Success");
+      localStorage.setItem("fittrek-token", result.token);
     }
     else {
-      toast.success("Logged In Success")
+      toast.error("Wrong credentials")
     }
   };
 
@@ -52,7 +58,7 @@ const Login = () => {
             </div>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body" onSubmit={handleSubmit}>
+            <div className="card-body" >
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Username</span>
@@ -63,7 +69,7 @@ const Login = () => {
                   className="input input-bordered"
                   required
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => SetEmail(e.target.value)}
                 />
               </div>
               <div className="form-control">
@@ -86,11 +92,11 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary" onSubmit={handleSubmit}>
+                <button className="btn btn-primary" onClick={handleSubmit}>
                   Login
                 </button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
